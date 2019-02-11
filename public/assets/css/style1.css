@@ -1,0 +1,36 @@
+p#wrongPass{
+    color: #ff0000;
+    font-size: 10px;
+    display: none;
+}
+
+p#invalidEmail{
+    color: #ff0000;
+    font-size: 10px;
+    display: none;
+}
+
+p#invalidUname{
+    color: #ff0000;
+    font-size: 10px;
+    display: none;
+}
+
+div#notification {
+    margin-left: 30%;
+    background-color: darkgrey;
+    width: 5%;
+    display: none;
+}
+
+a#logout {
+    display: none;
+}
+
+div.modal{
+    margin-left: 30%;
+}
+
+div.entry-content p.m-0 {
+    width: 100%;
+}
