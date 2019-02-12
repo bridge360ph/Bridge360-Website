@@ -6,7 +6,7 @@
         $checkUsername = "SELECT username FROM tbl_account WHERE username = '$username'";
         $checkUserRes = mysqli_query($conn, $checkUsername);
         $usernameCount = mysqli_num_rows($checkUserRes);
-        $response;
+        $response = false;
     
         if($usernameCount == 0){
             $response = true;
