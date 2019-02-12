@@ -1,3 +1,7 @@
+<?php 
+    if( session_start() ) {}
+?>
+
 <header class="site-header">
 
     <div class="top-header-bar">
@@ -10,6 +14,7 @@
                             EMAIL:
                             <a href="mailto:iambridge360@gmail.com?subject=Bridge360 Website&body=Enter e-mail body here">
                                 <span class="badge bg-info text-light">
+                                    <i class="fa fa-envelope"></i>
                                     iambridge360@gmail.com
                                 </span>
                             </a>
@@ -21,11 +26,13 @@
                             PHONE:
                             <a href="tel: +025179314">
                                 <span class="badge bg-info text-light">
+                                    <i class="fa fa-phone"></i>
                                     +02 517 9314
                                 </span>
                             </a>
                             <a href="tel: +639989925241">
                                 <span class="badge bg-info text-light">
+                                    <i class="fa fa-phone"></i>
                                     +63 998 9925241
                                 </span>
                             </a>
@@ -33,16 +40,28 @@
                     </div><!-- .header-bar-text -->
                 </div><!-- .col -->
 
-                <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">                    
-                    <button id="regBtn" class="btn btn-dark text-light mr-2" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">
-                        Register
-                    </button>
-                    <button id="inBtn" class="btn btn-dark text-light" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">
-                        Log in
-                    </button>
-                    <a href="../../assets/php/logout.php" class="btn btn-dark text-light mr-2" id='logout'>
-                        Logout
-                    </a>                    
+                <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center"> 
+                    <?php if( ! isset( $_SESSION["username"] ) ) { ?>                               
+                        <button id="regBtn" class="btn btn-dark text-light mr-2" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">
+                            Register
+                        </button>
+                    <?php } ?>
+
+                    <?php if( ! isset( $_SESSION["username"] ) ) { ?>
+                        <button id="inBtn" class="btn btn-dark text-light" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">
+                            Log in
+                        </button>
+                    <?php } ?>
+
+                    <?php if( isset( $_SESSION["username"] ) ) { ?>
+                        <span class="badge bg-warning text-light mr-3">
+                            <?php echo $_SESSION["username"]; ?>
+                        </span>
+
+                        <button id="logoutBtn" class="btn btn-dark text-light" onclick="logoutAccount();">
+                            Log out
+                        </button>
+                    <?php } ?>
                 </div><!-- .col -->
                 
             </div><!-- .row -->

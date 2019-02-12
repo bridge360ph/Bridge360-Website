@@ -246,7 +246,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero-slider {
+.home-page .hero-slider {
     max-height: 820px;
 }
 
@@ -777,7 +777,7 @@ ul.tabs-nav .tab-nav.active {
     background: rgba(21,21,21,.9);
 }
 
-.welcome-content .entry-title, .about-values .entry-title, .about-mission-vision .entry-title {
+.welcome-content .entry-title, .about-values .entry-title, .about-mission-vision .entry-title, .project-container .entry-title {
     position: relative;
     padding-bottom: 24px;
     font-size: 36px;
@@ -994,7 +994,7 @@ ul.tabs-nav .tab-nav.active {
 .our-causes {
     position: relative;
     padding: 96px 0;
-    background: url("images/cause-bg.jpg") no-repeat center;
+    /* background: url("images/cause-bg.jpg") no-repeat center; */
     background-size: cover;
     z-index: 99;
 }
@@ -1304,9 +1304,9 @@ ul.tabs-nav .tab-nav.active {
 /*--------------------------------------------------------------
 # Causes
 --------------------------------------------------------------*/
-.causes-page .page-header {
+/* .causes-page .page-header {
     background: url(images/causes-bg.jpg) no-repeat center;
-}
+} */
 
 .causes-page .featured-cause {
  padding: 96px 0;
@@ -1383,9 +1383,9 @@ ul.tabs-nav .tab-nav.active {
 /*--------------------------------------------------------------
 # Single Cause
 --------------------------------------------------------------*/
-.single-cause .page-header {
+/* .single-cause .page-header {
     background: url(images/single-cause-bg.jpg) no-repeat center;
-}
+} */
 
 .single-cause .highlighted-cause {
     padding: 46px 0 96px;
@@ -2206,3 +2206,79 @@ blockquote{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+
+/* PROJECTS */
+#project-content-1{
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 0px;
+}
+
+#project-content-2{
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 0px;
+}
+
+#project-content-3{
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    padding: 0px;
+}    
+
+.quote-text-p{    
+    font-size: 15px;
+}
+
+.santa{
+    padding: 96px 0;
+    
+    /* The image used */
+    background-image: url("../images/hero.jpg");  
+    opacity: 0.8;
+}
+
+.wayste {
+    padding: 96px 0;
+    
+    /* The image used */
+    background-image: url("../images/street.jpg");  
+    opacity: 0.8;
+}
+
+/*  */
+.projects-page .page-header {
+    background: url(../../assets/images/about-bg.jpg) no-repeat center;
+}
+
+.project-container {
+    background: #f2f2f2;
+    padding-bottom: 10px;
+    
+    border-top: 1px dashed #66cccc;
+    border-bottom: 1px dashed #66cccc;
+}
+
+.project-container .entry-title {
+    color: black !important;
+}
+
+.project-block {        
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #111;
+    color:#fff;
+    border: none;
+    opacity: 0.8;
+    padding: 20px;
+}
+
+    .project-block p {    
+        text-indent: 30px;
+        color: #fff;
+    }

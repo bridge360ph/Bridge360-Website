@@ -21,15 +21,15 @@ const setCurrentMenuItem = () => {
   $( `#site-nav-${currentPage}` ).addClass( `current-menu-item` );
   $( `html head title` ).html( `Bridge360 - ${currentPage.toUpperCase()}` );
 
-  if(currentPage == 'projects' || currentPage == 'services' || currentPage == 'blogs'){
-    $('#regBtn').hide();
-    $('#inBtn').hide();
-    $('#logout').show();
-  } else {
-    $('#logout').hide();
-    $('#regBtn').show();
-    $('#inBtn').show();
-  }
+  // if(currentPage == 'projects' || currentPage == 'services' || currentPage == 'blogs'){
+  //   $('#regBtn').hide();
+  //   $('#inBtn').hide();
+  //   $('#logout').show();
+  // } else {
+  //   $('#logout').hide();
+  //   $('#regBtn').show();
+  //   $('#inBtn').show();
+  // }
 };
 
 
@@ -49,4 +49,12 @@ const notifyUser = ( icon, message, type ) => {
   }, {
       type: type
   } );
+};
+
+const toTitleCase = (phrase) => {
+  return phrase
+    .toLowerCase()
+    .split(` `)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(` `);
 };

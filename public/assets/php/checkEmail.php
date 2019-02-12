@@ -1,17 +1,45 @@
 <?php
-    include "../../include/mysql_connect.php";
-
-    $email = $_POST['email'];
-    $checkEmail = "SELECT Email FROM tbl_account WHERE Email = '$email'";
-    $resEmail = mysqli_query($conn, $checkEmail);
-    $emailCount = mysqli_num_rows($resEmail);
-    $response;
-
-    if($emailCount == 0){
-        $response = "true";
+    // Init response obj
+    $response = array(
+        "error" => false,
+        "data" => array(
+            "message" => ""
+        )
+    );
+    
+    if( isset( $_POST["email"] ) ) {        
+        $email = trim( $_POST["email"] );
+        if( strlen( $email ) < 1 ) {
+            $response["error"] = true;
+            $response["data"]["message"] = "Email is required.";
+        } else {            
+            // Connect to db
+            include "../../include/mysql_connect.php";
+            
+            $sql = "SELECT email FROM tbl_account WHERE email = '$email'";
+            if( $result = mysqli_query( $conn, $sql ) ) {
+                $emailCount = mysqli_num_rows( $result );
+    
+                if( $emailCount > 0 ){
+                    $response["data"]["isValidEmail"] = false;
+                    $response["data"]["message"] = "Email is already taken.";
+                } else {
+                    $response["data"]["isValidEmail"] = true;
+                }
+    
+                mysqli_free_result( $result );
+            } else {
+                $response["error"] = true;
+                $response["data"]["message"] = "Error: " . mysqli_error( $conn ) . ".";
+            }
+    
+            // Close db
+            mysqli_close( $conn );
+        }        
     } else {
-        $response = "false";
+        $response["error"] = true;
+        $response["data"]["message"] = "Email is required.";
     }
 
-    echo json_encode($response);
+    echo json_encode( $response );
 ?>

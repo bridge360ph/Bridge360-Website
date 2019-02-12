@@ -18,6 +18,9 @@
 <body class="single-page about-page">
     <?php require "../partials/site-header.php"; ?>
 
+    <!-- MODAL -->
+    <?php include("../partials/login-register-modal.php"); ?>
+
     <div class="page-header">
         <div class="container">
             <div class="row">
@@ -27,6 +30,7 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </div><!-- .page-header -->
+
 
     <div class="welcome-wrap">
         <div class="container">

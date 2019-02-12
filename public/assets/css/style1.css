@@ -1,4 +1,4 @@
-p#wrongPass{
+/* p#wrongPass{
     color: #ff0000;
     font-size: 10px;
     display: none;
@@ -31,6 +31,16 @@ div.modal{
     margin-left: 30%;
 }
 
-div.entry-content p.m-0 {
+div#con {
     width: 100%;
+    text-align: justify;
 }
+
+img#paraImg {
+    width: 300px;
+    height: 450px;
+}
+
+div#show {
+    padding-left: 20%;
+} */

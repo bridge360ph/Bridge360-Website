@@ -73,37 +73,37 @@ function shakeModal(){
 // ERROR CHECKING AND NOTIFS
 $(document).ready(function(){
     //check if both passwords match when registering
-    $('#password_confirmation').blur( function(){
-        if( $('#password').val() != $('#password_confirmation').val() ){
-            notifyUser( `fa fa-window-close`, `Passwords do not match.`, `danger` );
+// $('#password_confirmation').blur( function(){
+//     if( $('#password').val() != $('#password_confirmation').val() ){
+//         notifyUser( `fa fa-window-close`, `Passwords do not match.`, `danger` );
 
-            $('#password_confirmation').val("");
-            $('#registerBtn').prop('disabled', true);
-        } else {
-            $('#registerBtn').prop('disabled', false);   
-        }
-    });
+//         $('#password_confirmation').val("");
+//         $('#registerBtn').prop('disabled', true);
+//     } else {
+//         $('#registerBtn').prop('disabled', false);   
+//     }
+// });
 
     //hides the error
     // $('#password_confirmation').focus(function(){
     //     $('#wrongPass').hide();
     // });
 
-    $('#password').keyup(function(){
-        if($('#password').val() == ""){
-            $('#password_confirmation').prop('disabled', true);
-        } 
-        else if($('#password').val() != ""){
-            $('#password_confirmation').prop('disabled', false);
-        }
-    });
+// $('#password').keyup(function(){
+//     if($('#password').val() == ""){
+//         $('#password_confirmation').prop('disabled', true);
+//     } 
+//     else if($('#password').val() != ""){
+//         $('#password_confirmation').prop('disabled', false);
+//     }
+// });
 
-    $(`input[type=text], input[type=number], input[type=email], input[type=password]`).blur( () => {
-        if($('#firstname').val() == "" || $('#lastname').val() == "" || $('#email').val() == "" || $('#number').val() == "" || $('#username').val() == "" || $('#password').val() == "" || $('#password_confirmation').val() == ""){
-            notifyUser( `fa fa-exclamation`, `All fields are required.`, `warning` );
-            $('#registerBtn').prop('disabled', true);
-        }
-    } );
+// $(`input[type=text], input[type=number], input[type=email], input[type=password]`).blur( () => {
+//     if($('#firstname').val() == "" || $('#lastname').val() == "" || $('#email').val() == "" || $('#number').val() == "" || $('#username').val() == "" || $('#password').val() == "" || $('#password_confirmation').val() == ""){
+//         notifyUser( `fa fa-exclamation`, `All fields are required.`, `warning` );
+//         $('#registerBtn').prop('disabled', true);
+//     }
+// } );
 
     // $('#email').focus(function(){
     //     $('#invalidEmail').hide();

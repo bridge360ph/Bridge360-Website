@@ -1,93 +1,261 @@
-function registerAcc(){
-    var first_name = document.getElementById('firstname').value;
-    var last_name = document.getElementById('lastname').value;
-    var e_mail = document.getElementById('email').value;
-    var phone_number = document.getElementById('number').value;
-    var user_name = document.getElementById('username').value;
-    var pass_word = document.getElementById('password').value;
-    var check_pass = document.getElementById('password_confirmation').value;
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function() {
-        if(this.readyState == 4 && this.status == 200){
-            window.location.href = "http://localhost/OJT/Bridge360Web/public/views/pages/home.php"; 
-            $('#notification').fadeIn('fast', function(){
-                $('#notifContent').text("Signed Up Successfully!").css('text-align', 'center');
-                setTimeout(function(){
-                    $('#notification').fadeOut('slow');
-                }, 3000);
-            });
-        }
+const registerAccount = () => {
+    var account = {
+        firstName : document.forms["frmRegister"]["firstName"].value,
+        lastName : document.forms["frmRegister"]["lastName"].value,
+        email : document.forms["frmRegister"]["email"].value,
+        phoneNumber : document.forms["frmRegister"]["phoneNumber"].value,
+        username : document.forms["frmRegister"]["username"].value,
+        password : document.forms["frmRegister"]["password_1"].value,
+        password_2 : document.forms["frmRegister"]["password_2"].value
     };
-    xhttp.open('POST', '../../assets/php/register_acc.php', true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send("firstname="+first_name+"&lastname="+last_name+"&email="+e_mail+"&number="+phone_number+"&username="+user_name+"&password_1="+pass_word+"&password_2="+check_pass);
-}
 
-function login(){
-    var email = document.getElementById('login_email').value;
-    var password = document.getElementById('login_password').value;
-    var xhttp  = new XMLHttpRequest();
+    if( account.password != account.password_2 ) {
+        notifyUser( `fa fa-window-close`, `Passwords do not match.`, `danger` );
+        return false;
+    }
     
-    xhttp.onreadystatechange = function() {
-        var response = JSON.parse(xhttp.responseText);
-        if(this.readyState == 4 && this.status == 200){
-            if(response == "true"){
-                window.location.href = "http://localhost/OJT/Bridge360Web/public/views/pages/projects.php"; 
-            } else{
-                $('#login_password').val("");
-                $('#notification').fadeIn('fast', function(){
-                    $('#notifContent').text("Wrong Password!").css('text-align', 'center');
-                    setTimeout(function(){
-                        $('#notification').fadeOut('slow');
-                    }, 3000);
-                });
-            }
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "../../assets/php/registerAccount.php",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+          "Postman-Token": "966b2ceb-4be7-470f-b281-cad787e04ecd"
+        },
+        "data": {
+          "firstName": toTitleCase( account.firstName ),
+          "lastName": toTitleCase( account.lastName ),
+          "email": account.email,
+          "phoneNumber": account.phoneNumber,
+          "username": account.username,
+          "password": account.password
         }
-    };
-    xhttp.open('POST', '../../assets/php/login.php', true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send("email="+email+"&password="+password);
-}
+      }
+      
+    $.ajax( settings )
+        .success( ( response ) => {            
+            var responseObj = JSON.parse( response );
+            
+            if( responseObj.error ) {
+                if( Array.isArray( (responseObj.data.message) ) ) {
+                    var messagesHTML = ``;
 
-function confirmEmail(){
-    var email = document.getElementById('email').value;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        var response = JSON.parse(xhttp.responseText);
-        if(this.readyState == 4 && this.status == 200){
-            if(response == "false"){
-                $('#invalidEmail').show();
-                $('#email').val("");
+                    messagesHTML += `<ul>`;
+                    (responseObj.data.message).forEach( ( message ) => {
+                        messagesHTML += `<li>${message}</li>`;
+                    } );
+                    messagesHTML += `</ul>`;
+                    
+                    notifyUser( `fa fa-window-close`, `${messagesHTML}`, `danger` );
+                } else {
+                    notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                }
             } else {
-                $('#invalidEmail').hide();
+                notifyUser( `fa fa-check`, `Account registration is successful.`, `success` );
+                setTimeout(function(){
+                    window.location.href = "../../views/pages/home.php";             
+                }, 3000);
             }
-        }
-    };
-    xhttp.open('POST', '../../assets/php/checkEmail.php', true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send("email="+email);
-}
+        } )
+        .fail( ( response ) => {
+            var responseObj = JSON.parse( response );
 
-function confirmUserName(){
-    var username = document.getElementById('username').value;
-    if( username == "" || username.length == 0 ) {
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+            } else {
+                notifyUser( `fa fa-window-close`, `Something went wrong. Please try again later.`, `danger` );
+            }
+        } );
+
+    return false;
+};
+
+const loginAccount = () => {
+    var account = {
+        email : document.forms["frmLogin"]["email"].value,
+        password : document.forms["frmLogin"]["password"].value
+    };
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "../../assets/php/loginAccount.php",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+          "Postman-Token": "55af14cc-08fd-45d3-bee7-d176ed1d857c"
+        },
+        "data": {
+          "email": account.email,
+          "password": account.password
+        }
+      }
+      
+    $.ajax( settings )
+        .success( ( response ) => {            
+            var responseObj = JSON.parse( response );
+            
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+            } else {
+                // notifyUser( `fa fa-check`, `${responseObj.data.message}`, `success` );
+                var notify = $.notify(
+                    `Logging in...`,
+                    {
+                        type: `success`,
+                        allow_dismiss: false,
+                        showProgressBar: true
+                    }
+                );
+
+                setTimeout(function(){
+                    notify.update( `message`, responseObj.data.message );           
+                }, 2000);
+                setTimeout(function(){
+                    window.location.href = "../../views/pages/home.php";  
+                }, 1000);
+            }
+        } )
+        .fail( ( response ) => {
+            var responseObj = JSON.parse( response );
+
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+            } else {
+                notifyUser( `fa fa-window-close`, `Something went wrong. Please try again later.`, `danger` );
+            }
+        } );
+
+    return false;
+
+    // var xhttp  = new XMLHttpRequest();
+    
+    // xhttp.onreadystatechange = function() {
+    //     var response = JSON.parse(xhttp.responseText);
+    //     if(this.readyState == 4 && this.status == 200){
+    //         if(response == "true"){
+    //             window.location.href = "http://localhost/OJT/Bridge360Web/public/views/pages/projects.php"; 
+    //         } else{
+    //             $('#login_password').val("");
+    //             $('#notification').fadeIn('fast', function(){
+    //                 $('#notifContent').text("Wrong Password!").css('text-align', 'center');
+    //                 setTimeout(function(){
+    //                     $('#notification').fadeOut('slow');
+    //                 }, 3000);
+    //             });
+    //         }
+    //     }
+    // };
+    // xhttp.open('POST', '../../assets/php/login.php', true);
+    // xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // xhttp.send("email="+email+"&password="+password);
+};
+
+const logoutAccount = () => {
+    window.location.href = "../../assets/php/logoutAccount.php";
+};
+
+const confirmEmail = () => {
+    var emailEl = document.forms["frmRegister"]["email"];
+
+    if( emailEl.value === "" ) {
         return false;
     }
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        var response = JSON.parse(xhttp.responseText);
-        if(this.readyState == 4 && this.status == 200){
-            if(response == false){
-                notifyUser( "fa fa-window-close", "Username already taken.", "danger" );
-                $('#username').val("");
-            } else {
-                $('#invalidUname').hide();
-            }
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "../../assets/php/checkEmail.php",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+          "Postman-Token": "ddaaff6c-7c12-4b16-81d6-b2b934b7eaa7"
+        },
+        "data": {
+          "email": emailEl.value
         }
-    };
-    xhttp.open('POST', '../../assets/php/checkUsername.php', true);
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send("username="+username);
-}
+      };
+      
+    $.ajax( settings )
+        .success( ( response ) => {            
+            var responseObj = JSON.parse( response );
+            
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                emailEl.value = null;
+            } else {
+                if( responseObj.data.isValidEmail ) {
+                    // notifyUser( `fa fa-check`, `Email is valid.`, `success` );                
+                } else {
+                    notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                    emailEl.value = null;
+                }
+            }
+        } )
+        .fail( ( response ) => {
+            var responseObj = JSON.parse( response );
+
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                emailEl.value = null;
+            } else {
+                notifyUser( `fa fa-window-close`, `Something went wrong. Please try again later.`, `danger` );
+                emailEl.value = null;
+            }
+        } );
+};
+
+const confirmUsername = () => {
+    var usernameEl = document.forms["frmRegister"]["username"];
+
+    if( usernameEl.value === "" ) {
+        return false;
+    }
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "../../assets/php/checkUsername.php",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+          "Postman-Token": "ddaaff6c-7c12-4b16-81d6-b2b934b7eaa7"
+        },
+        "data": {
+          "username": usernameEl.value
+        }
+      };
+      
+    $.ajax( settings )
+        .success( ( response ) => {
+            var responseObj = JSON.parse( response );
+            
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                usernameEl.value = null;
+            } else {
+                if( responseObj.data.isValidUsername ) {
+                    // notifyUser( `fa fa-check`, `Username is valid.`, `success` );                
+                } else {
+                    notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                    usernameEl.value = null;
+                }
+            }
+        } )
+        .fail( ( response ) => {
+            var responseObj = JSON.parse( response );
+
+            if( responseObj.error ) {
+                notifyUser( `fa fa-window-close`, `${responseObj.data.message}`, `danger` );
+                usernameEl.value = null;
+            } else {
+                notifyUser( `fa fa-window-close`, `Something went wrong. Please try again later.`, `danger` );
+                usernameEl.value = null;
+            }
+        } );
+};
