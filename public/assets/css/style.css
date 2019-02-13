@@ -1128,8 +1128,8 @@ ul.tabs-nav .tab-nav.active {
 .single-page .page-header {
     position: relative;
     z-index: 99;
-    padding-top: 100px;
-    padding-bottom: 72px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-size: cover !important;
 }
 
@@ -1155,8 +1155,7 @@ ul.tabs-nav .tab-nav.active {
 .single-page .page-header h1::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 20px;
     width: 64px;
     height: 4px;
     border-radius: 2px;
@@ -1541,7 +1540,7 @@ ul.tabs-nav .tab-nav.active {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .page-header {
-    background: url(images/portfolio-bg.jpg) no-repeat center;
+    background: url(../../assets/images/portfolio-bg.jpg) no-repeat center;
 }
 
 .portfolio-wrap {
@@ -2253,15 +2252,18 @@ blockquote{
 
 /*  */
 .projects-page .page-header {
-    background: url(../../assets/images/about-bg.jpg) no-repeat center;
+    background: url(../../assets/images/causes-bg.jpg) no-repeat center;
 }
 
 .project-container {
-    background: #f2f2f2;
     padding-bottom: 10px;
     
     border-top: 1px dashed #66cccc;
     border-bottom: 1px dashed #66cccc;
+}
+
+.project-container:nth-child(even) {
+    background: #d1ecef;
 }
 
 .project-container .entry-title {
@@ -2282,3 +2284,54 @@ blockquote{
         text-indent: 30px;
         color: #fff;
     }
+
+
+
+/* SERVICES */
+.services-page .page-header {
+    background: url(../../assets/images/portfolio-bg.jpg) no-repeat center;
+}
+
+.service-2, .service-4 {
+    background: #64c4ec;
+    color: #fff;
+}
+
+.service-info {
+    font-family: "Geldotica";
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.service-pic #pic1 {
+    margin-top: 30px;
+    height: 200px;
+}
+
+.service-pic #pic3 {
+    margin-top: 30px;
+    height: 200px;
+    width: 100%;
+}
+
+.service-vid {
+    margin-top: 30px;
+}
+
+.contact-info li span {
+    color: #428bca;
+}
+
+
+
+/* SCROLLSPY */
+body {
+    position: relative;
+}
+
+.scrollspy-list {
+    display: inline-block;
+    width: 20%;
+    position: fixed;
+    z-index: 999;
+}

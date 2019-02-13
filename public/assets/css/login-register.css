@@ -74,9 +74,20 @@
 	animation-name: shake;
 }
 
+body.modal-open .supreme-container{
+    opacity: 0.5;
+    filter: blur(15px);
+}
+
 .modal-dialog{
     width: 550px;
     position:absolute;  
+}
+
+.modal-content {
+    position: absolute;
+    left: 50%;
+    right: 0;
 }
 
 .login .modal-footer{

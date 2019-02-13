@@ -32,11 +32,21 @@ const setCurrentMenuItem = () => {
   // }
 };
 
+const setScrollspy = () => {
+  var pathname = window.location.pathname,
+      pathnameSplit = pathname.split(`/`),
+      pathnameSplitLength = pathnameSplit.length,
+      currentPage = pathnameSplit[ pathnameSplitLength-1 ].split(`.`)[0];
+
+  $(`body`).scrollspy( { target: `#scroll-list-${currentPage}` } );
+};
+
 
 
 // ONLOAD
 $( function() {
   setCurrentMenuItem();
+  setScrollspy();  
 } );
 
 

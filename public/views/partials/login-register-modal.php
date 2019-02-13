@@ -45,7 +45,6 @@
                             
                             <input id="password" class="form-control" type="password" placeholder="Password" name="password_1">
                             <input id="password_confirmation" class="form-control" type="password" placeholder="Retype Password" name="password_2">
-                            <p id="wrongPass">Incorrect Password.*</p>
                             <button id="registerBtn" class="btn btn-default btn-register" type="submit">Create Account </button>
                         </form>
                     </div>
