@@ -1,20 +1,17 @@
-<footer class="site-footer">
+<footer class="site-footer" id="site-footer">
     <div class="footer-widgets">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="foot-about">
-                        <h2><a class="foot-logo" href="#"><img src="../../assets/images/foot-logo.png" alt=""></a></h2>
+                        <a class="foot-logo" href="./home.php"><img src="../../assets/images/bridge360logo.png" alt="" width="150px"></a>
 
-                        <p>Lorem ipsum dolor sit amet, con sectetur adipiscing elit. Mauris temp us vestib ulum mauris.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris.Lorem ipsum dolo.</p>
+                        <p class="text-justify">Bridge360 is a Philippine based startup and DTI-registered company under the existing laws of the Philippines that would bridge the gap between different social sectors, public sectors, and private sectors through hardware and software innovations here in the Philippines and the emerging markets among the ASEAN countries.</p>
 
                         <ul class="d-flex flex-wrap align-items-center">
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://web.facebook.com/Bridge360PH/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/bridge360PH" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/14495318/admin/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                         </ul>
                     </div><!-- .foot-about -->
                 </div><!-- .col -->
@@ -23,7 +20,7 @@
                     <h2>Useful Links</h2>
 
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#" class="hidden">Privacy Policy</a></li>
                         <li><a href="./projects.php">Projects</a></li>
                         <li><a href="./services.php">Services</a></li>
                         <li><a href="./blogs.php">Blogs</a></li>
@@ -33,10 +30,16 @@
                 <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
                     <div class="foot-latest-news">
                         <h2>Latest Blogs</h2>
+                        
+                        <div class="">
+                            <!-- start feedwind code -->
+                            <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="102251/"></script>
+                            <!-- end feedwind code -->
+                        </div>
 
-                        <ul>
-                            <?php echo getRecentBlogs(); ?>
-                        </ul>
+                        <!-- <ul>
+                            <?php //echo getRecentBlogs(); ?>
+                        </ul> -->
                     </div><!-- .foot-latest-news -->
                 </div><!-- .col -->
 

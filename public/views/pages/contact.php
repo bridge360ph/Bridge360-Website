@@ -1,145 +1,118 @@
+<?php
+    // FUNCTIONS
+    require "../../include/getRecentBlogs.php";
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
-    <title>Contact Us</title>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- ElegantFonts CSS -->
-    <link rel="stylesheet" href="css/elegant-fonts.css">
-
-    <!-- themify-icons CSS -->
-    <link rel="stylesheet" href="css/themify-icons.css">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <title>Bridge360</title>    
+    <?php require "../partials/head.php"; ?>
 </head>
+
+
 <body class="single-page contact-page">
-<header class="site-header">
-    <div class="top-header-bar">
-        <div class="container">
-            <div class="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
-                <div class="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
-                    <div class="header-bar-email">
-                        EMAIL: <a href="#">iambridge360@gmail.com</a>
-                    </div><!-- .header-bar-email -->
 
-                    <div class="header-bar-text">
-                        <p>PHONE: <span>+02 517 9314 / +63 998 9925241</span></p>
-                    </div><!-- .header-bar-text -->
-                </div><!-- .col -->
+    <div class="supreme-container">    
 
-                <div class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
-                    <div class="donate-btn">
-                            <a href="#">Login</a>
-                            <a href="#">Sign up</a>
-                        </div><!-- .donate-btn -->
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div>
+        <?php require "../partials/site-header.php"; ?>
+
     </div>
 
-    <div class="nav-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
-                
-                
-                    <nav class="site-navigation d-flex justify-content-end align-items-center">
-                        <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
-                            <a  href="index.html" rel="home"><img src="images/bridge360logo.png" alt="logo" style="width:250px;height:150px;"></a>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>                          
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blogs.html">Blogs</a></li>
-                            <li class="current-menu-item"><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </nav><!-- .site-navigation -->
+    <!-- MODAL -->
+    <?php require "../partials/login-register-modal.php"; ?>
 
-                    <div class="hamburger-menu d-lg-none">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div><!-- .hamburger-menu -->
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .nav-bar -->
-</header><!-- .site-header -->
+    <div class="supreme-container">
 
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Contact</h1>
-                </div><!-- .col -->
-            </div><!-- .row -->
-        </div><!-- .container -->
-    </div><!-- .page-header -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Contact</h1>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .page-header -->
 
-    <div class="contact-page-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-5">
-                    <div class="entry-content">
-                        <h2>Get In touch with us</h2>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris. Lorem ipsum dolor sit amet, conse ctetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus vestib ulum mauris quis aliquam. Integer accu msan sodales odio, id tempus velit ullamc.</p>
-
-                        <ul class="contact-social d-flex flex-wrap align-items-center">
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-
-                        <ul class="contact-info p-0">
-                            <li><i class="fa fa-phone"></i><span>+45 677 8993000 223</span></li>
-                            <li><i class="fa fa-envelope"></i><span>office@template.com</span></li>
-                            <li><i class="fa fa-map-marker"></i><span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span></li>
-                        </ul>
-                    </div>
-                </div><!-- .col -->
-
-                <div class="col-12 col-lg-7">
-                    <form class="contact-form">
-                        <input type="text" placeholder="Name">
-                        <input type="email" placeholder="Email">
-                        <textarea rows="15" cols="6" placeholder="Messages"></textarea>
-
-                        <span>
-                            <input class="btn gradient-bg" type="submit" value="Contact us">
-                        </span>
-                    </form><!-- .contact-form -->
-
-                </div><!-- .col -->
-
-                <div class="col-12">
-                    <div class="contact-gmap">
-                        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=usa&key=AIzaSyC2LvnNLzWxHgFm_XfpFG9wHUuyEj6rXSs" allowfullscreen></iframe>
-                    </div>
+        <div class="contact-page-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="entry-content">
+                            <h2 class="entry-title">Get In touch with us</h2>
+                            <p>
+                                Contact us to know more about our projects and services we offer.
+                                <br/>We care for our customers and value your questions and respond to<br/>
+                                them as quiickly as possible.                             
+                            </p>
+                            <h2 class="entry-title">Have questions?</h2>
+                            <ul id="have-list" class="contact-info">
+                                <li>Talk to us to find out more about our AI Colorizer and other <br/>Customized AI and 3D solutions. </li>
+                                <li>Ask us about the courses and trainings we offer.</li>
+                                <li>Become a pro in AI: From the courses we offer, we can help you <br/>understand how AI works and how to build it.</li>
+                                <li>See our web apps and other software in action and see how it can help you.</li>
+                                <li>Get updated with our latest social projects.</li>
+                            </ul>
+                        </div>
+                    </div><!-- .col -->
+                    <div class="col-12 col-lg-4">
+                        <div class="entry-content">
+                            <ul class="contact-info p-0">
+                                <li>
+                                    <h2 class="entry-title">Direct Contact</h2>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i><a href="tel: +025179314"><span>+02 517 9314</span></a>&nbsp;&nbsp;&nbsp;<a href="tel: +639989925241"><span>+639 989 925241</span></a>
+                                </li>
+                                <li>
+                                    <a href="mailto:iambridge360@gmail.com?subject=Bridge360 Website&amp;body=Enter e-mail body here"><i class="fa fa-envelope"></i><span>iambridge360@gmail.com</span></a>
+                                </li>
+                                <li>
+                                    <h2 class="entry-title">Corporate Office</h2>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="showMap();">
+                                        <i class="fa fa-map-marker"></i><span>Unit 25D Zeta Bldg., 191 Salcedo St.<br/> Legazpi Village, Makati City 1229</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <h2 class="entry-title">Check Us on</h2>
+                                </li>
+                                <li>
+                                    <a href="https://web.facebook.com/Bridge360PH/" target="_blank"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/bridge360PH" target="_blank"><i class="fa fa-twitter"></i><span>twitter</span>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/14495318/admin/" target="_blank"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="entry-content">
+                            <h2 class="entry-title">Message Us</h2>
+                            <form id="msg-form" class="contact-form" name="frmContact">
+                                <textarea rows="15" cols="6" placeholder="Your Message" name="message"></textarea>
+                                <button type="submit" class="btn btn-primary" onclick="contactUsEmail();">Contact Us</button>
+                                <a href="" id="contact-link"></a>
+                            </form><!-- .contact-form -->
+                        </div>
+                    </div><!-- .col -->
                 </div>
-            </div><!-- .row -->
-        </div><!-- .container -->
+            </div><!-- .container -->
+        </div>
+
     </div>
 
-
-    <?php include("../partials/site-footer.php"); ?>
+    <?php require "../partials/site-footer.php"; ?>
 
 </body>
 </html>

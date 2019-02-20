@@ -75,7 +75,7 @@
 
                     <nav class="site-navigation d-flex justify-content-end align-items-center">
                         <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-left" id="site-nav">
-                            <a  href="home.php" rel="home">
+                            <a  href="./home.php" rel="home">
                                 <img src="../../assets/images/bridge360logo.png" alt="logo" style="width:250px;height:150px;">
                             </a>
                             <li id="site-nav-home">

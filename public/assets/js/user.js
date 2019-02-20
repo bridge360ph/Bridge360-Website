@@ -130,28 +130,6 @@ const loginAccount = () => {
         } );
 
     return false;
-
-    // var xhttp  = new XMLHttpRequest();
-    
-    // xhttp.onreadystatechange = function() {
-    //     var response = JSON.parse(xhttp.responseText);
-    //     if(this.readyState == 4 && this.status == 200){
-    //         if(response == "true"){
-    //             window.location.href = "http://localhost/OJT/Bridge360Web/public/views/pages/projects.php"; 
-    //         } else{
-    //             $('#login_password').val("");
-    //             $('#notification').fadeIn('fast', function(){
-    //                 $('#notifContent').text("Wrong Password!").css('text-align', 'center');
-    //                 setTimeout(function(){
-    //                     $('#notification').fadeOut('slow');
-    //                 }, 3000);
-    //             });
-    //         }
-    //     }
-    // };
-    // xhttp.open('POST', '../../assets/php/login.php', true);
-    // xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    // xhttp.send("email="+email+"&password="+password);
 };
 
 const logoutAccount = () => {

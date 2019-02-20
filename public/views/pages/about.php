@@ -20,14 +20,14 @@
     <div class="supreme-container">
 
         <!-- SCROLLSPY -->
-        <?php include("../partials/scrollspy-about.php"); ?>        
+        <?php require "../partials/scrollspy-about.php"; ?>        
 
-        <?php include("../partials/site-header.php"); ?>
+        <?php require "../partials/site-header.php"; ?>
 
     </div>
 
     <!-- MODAL -->
-    <?php include("../partials/login-register-modal.php"); ?>
+    <?php require "../partials/login-register-modal.php"; ?>
 
     <div class="supreme-container">
 

@@ -1891,10 +1891,17 @@ ul.tabs-nav .tab-nav.active {
 }
 
 /*--------------------------------------------------------------
+# Blogs Page
+--------------------------------------------------------------*/
+.blogs-page .page-header {
+    background: url("../images/news-bg.jpg") no-repeat center;
+}
+
+/*--------------------------------------------------------------
 # Contact Page
 --------------------------------------------------------------*/
 .contact-page .page-header {
-    background: url(images/contact-bg.jpg) no-repeat center;
+    background: url(../images/contact-bg.jpg) no-repeat center;
 }
 
 .contact-page-wrap {
@@ -2321,6 +2328,16 @@ blockquote{
 .contact-info li span {
     color: #428bca;
 }
+
+/* CONTACT US */
+#msg-form{
+    margin-top: 20px;
+}
+
+#have-list {
+    list-style-type: disc;
+}
+
 
 
 

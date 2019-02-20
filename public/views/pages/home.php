@@ -3,13 +3,15 @@
     require "../../include/getRecentBlogs.php";
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 
 <head>
     <title>Bridge360</title>
-    <?php include("../partials/head.php"); ?>
+    <?php require "../partials/head.php"; ?>
 </head>
 
 
@@ -18,14 +20,14 @@
     <div class="supreme-container">
 
         <!-- SCROLLSPY -->
-        <?php include("../partials/scrollspy-home.php"); ?>        
+        <?php require "../partials/scrollspy-home.php"; ?>
 
-        <?php include("../partials/site-header.php"); ?>
+        <?php require "../partials/site-header.php"; ?>
 
     </div>
 
     <!-- MODAL -->
-    <?php include("../partials/login-register-modal.php"); ?>
+    <?php require "../partials/login-register-modal.php"; ?>
     
     <div class="supreme-container">
 
