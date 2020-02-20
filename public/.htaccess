@@ -1,0 +1,22 @@
+Options +Indexes
+IndexOptions FancyIndexing
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ $1.php [L,QSA]
+RewriteCond %{THE_REQUEST} ^(.+)\.php([#?][^\ ]*)?\ HTTP/
+DirectoryIndex home.php
+RewriteCond %{QUERY_STRING} ^q=([0-9]*)$
+RewriteRule ^preview\.php$ /preview/%1? [L]
+
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    # Submitted by: ElliotHaughin
+
+ErrorDocument 404 /404error.php
+
+</IfModule>
